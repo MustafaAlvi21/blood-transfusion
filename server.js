@@ -23,6 +23,8 @@ const homeRouter = require('./routes/home')
 const signupRouter = require('./routes/signup')
 const loginRouter = require('./routes/login')
 const logoutRouter = require('./routes/logout')
+const req_donation = require('./routes/req_donation')
+const blood_request = require('./routes/blood_request')
 
 
 /*  ---------------------------------------------  */
@@ -45,6 +47,8 @@ app.use( ('/'), homeRouter );
 app.use( ('/signup'), signupRouter );
 app.use( ('/login'), loginRouter );
 app.use( ('/'), logoutRouter );
+app.use( ('/help-section'), req_donation );
+app.use( ('/help-section'), blood_request );
 
 // app.use('/login', (req,res) => {
  

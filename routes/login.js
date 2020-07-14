@@ -3,6 +3,8 @@ const express = require ('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const userDataModule = require('../modules/signUpSchema');
+const checkExistingUsernameFromDB = require('../middleware/existing-user');
+// const local_storage = require('../middleware/local-storage');
 
 // settingUp local-storage
 if(typeof localStorage === 'undefined' || localStorage === null){
@@ -10,20 +12,6 @@ if(typeof localStorage === 'undefined' || localStorage === null){
     localStorage = new localStorage('./scratch');
   }
 
-  /* Checking db existing username. */ 
-function checkExistingUsernameFromDB(req, res, next){
-  var enteredUsername = req.body.Username;
-  var checkExistingUsernameFromDB = userDataModule.findOne({Username : enteredUsername});
-  console.log('checkExistingUsernameFromDB : ' + checkExistingUsernameFromDB)
-  
-  checkExistingUsernameFromDB.exec((err, data) => {
-    if (err) throw err; 
-    if (data){
-      return   res.render('signup', { title: 'Password Management System', msg:"", loginUser: '', usernameMsg: 'Username exist in our data', emailMsg: '', });
-    }
-    next();
-  });
-};
 
 
   router.get('/', (req,res) => {
@@ -58,7 +46,9 @@ router.post('/', (req, res) => {
                 localStorage.setItem('userToken', token);
                 localStorage.setItem('loginUser', Username);
                 localStorage.setItem('loginUserGender', data.Gender);
+                // console.log("userToken: 123    " + localStorage.getItem('userToken') );                 
                 console.log("loginUser: " + localStorage.getItem('loginUser') );                 
+                // console.log("loginUserGender: " + localStorage.getItem('loginUserGender') );                 
                 res.render('home', {title:"Home" , loginUser: localStorage.getItem('loginUser'),  loginUserGender: localStorage.getItem('loginUserGender')  });     
                } else {
                 console.log('password match')
