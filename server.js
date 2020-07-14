@@ -57,6 +57,7 @@ app.use( ('/'), logoutRouter );
 
 console.log('process.env.DATABASE_URL ' + process.env.DATABASE_URL)
 const mongoose = require ('mongoose');
+<<<<<<< HEAD
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true , useUnifiedTopology: true })
 const db = mongoose.connection;
 db.on('error', error => console.error(error))
@@ -75,3 +76,15 @@ db.once('open',()  => console.log('Connected Mongo'))
 /*  ---------------------------------------------  */  
 const port1 = 3000
 app.listen(process.env.PORT || port1);
+=======
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+const db = mongoose.connection;
+db.on('error', error => console.error(error))
+db.once('open',()  => console.log('Connected Mongo'))
+
+/*  ---------------------------------------------  */
+/*                  listening Port                 */
+/*  ---------------------------------------------  */
+
+app.listen(process.env.PORT || 3000);
+>>>>>>> b067d9ae43b178bbaa718b8aaea116acede1393e
