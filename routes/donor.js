@@ -13,7 +13,7 @@ const donationRequestDataModel = require ('../modules/DB_req_donation')
 
     // const donationRequest = new donationRequestDataModel({});
      donationRequestDataModel.find({Status : "Accepted"}).exec(function(err, result){
-        console.log(result[0].Status)
+       // console.log(result[0].Status)
         if (err) throw err;
         res.render('donor', {  title: 'Blood Stock', data: result, loginUser: localStorage.getItem('loginUser'), loginUserGender: localStorage.getItem('loginUserGender') } )
       })
