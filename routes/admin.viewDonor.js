@@ -21,7 +21,7 @@ router.get('/donors', function(req, res, next){
 });
 
 /*         E d i t   D o n o r     R e q u e s t        */
-app.get('/donorEdit/:Donation_Req_Id', function(req, res, next){
+router.get('/donorEdit/:Donation_Req_Id', function(req, res, next){
     const userID= req.params.Donation_Req_Id;
     localStorage.setItem('donorEdit_Donation_Req_Id', userID);
     let sql_1 = "SELECT * FROM Donationrequest  WHERE Donation_Req_Id = ? ";
