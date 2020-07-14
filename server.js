@@ -25,6 +25,10 @@ const loginRouter = require('./routes/login')
 const logoutRouter = require('./routes/logout')
 const req_donation = require('./routes/req_donation')
 const blood_request = require('./routes/blood_request')
+const donor = require('./routes/donor')
+const accepter = require('./routes/accepter')
+const bloodStock = require('./routes/bloodStock')
+const  admin_viewDonor = require('./routes/admin.viewDonor')
 
 
 /*  ---------------------------------------------  */
@@ -49,6 +53,10 @@ app.use( ('/login'), loginRouter );
 app.use( ('/'), logoutRouter );
 app.use( ('/help-section'), req_donation );
 app.use( ('/help-section'), blood_request );
+app.use( ('/donor'), donor );
+app.use( ('/accepters'), accepter );
+app.use( ('/blood_stock'), bloodStock );
+app.use( ('/c-panel/admin'), admin_viewDonor );
 
 // app.use('/login', (req,res) => {
  
