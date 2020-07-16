@@ -29,6 +29,7 @@ const donor = require('./routes/donor')
 const accepter = require('./routes/accepter')
 const bloodStock = require('./routes/bloodStock')
 const  admin_viewDonor = require('./routes/admin.viewDonor')
+const  admin_viewAccepter = require('./routes/admin.viewAccepter')
 
 
 /*  ---------------------------------------------  */
@@ -57,6 +58,7 @@ app.use( ('/donor'), donor );
 app.use( ('/accepters'), accepter );
 app.use( ('/blood_stock'), bloodStock );
 app.use( ('/c-panel/admin'), admin_viewDonor );
+app.use( ('/c-panel/admin'), admin_viewAccepter );
 
 // app.use('/login', (req,res) => {
  
@@ -69,7 +71,7 @@ app.use( ('/c-panel/admin'), admin_viewDonor );
 
 console.log('process.env.DATABASE_URL ' + process.env.DATABASE_URL)
 const mongoose = require ('mongoose');
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true , useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true , useUnifiedTopology: true, useFindAndModify: false })
 const db = mongoose.connection;
 db.on('error', error => console.error(error))
 db.once('open',()  => console.log('Connected Mongo'))

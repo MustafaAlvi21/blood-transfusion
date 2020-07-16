@@ -1,0 +1,46 @@
+<header style="background-color: #cf3d3c;">
+    <div class="row mx-auto a3">
+      <div class="col-lg-4 a3_1" style="border: steelblue;">
+      <center>
+        <br>
+       <img src="/images/logoTest.png" alt="logo" width="150px" height="100px" style="margin-top: 8px">
+      </center>
+      </div>
+      <div class="col-lg-4 a3_1" style="border:  blue;">
+        <div class="row mx-auto">   
+        <div class="col" id="userImage" style="margin: 0px auto; color: white;">
+          <center>                
+            <% if (loginUser) {%>
+                  <% if (loginUserGender == 'male' || loginUserGender == 'Male' ) {%>
+                    <br>
+                    <img src="/images/maleUser.png" alt="male pic" style="max-width: 100px; max-height: 80px;">
+                    <% } else { %>
+                      <br>
+                      <img src="/images/femailUser.png" alt="femail pic" style="max-width: 100px; max-height: 80px;">
+                      <% } %> 
+                      <p> <%=loginUser%> </p>
+            <% } else { %>
+              <br>
+               <img src="/images/user-transparent.png" alt="img" style="max-width: 100px; max-height: 80px;">
+            <% } %>
+          </center>
+        </div>
+      </div>
+    </div>
+     
+      <div class="col-lg-4 a3_1" style="border: red; margin-top: 5%;">
+        
+        <center>
+          <span class="span1">
+          <% if (loginUser) {%>
+           <h4 > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; <a  style="color: white;" href="/logout"> Logout </a> &nbsp; &nbsp; &nbsp; </h4>
+         <% }  else { %>
+          <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a  style="color: white;" href="/signup"> Register </a> &nbsp; <a  style="color: white;" href="/login"> Login </a> </h4>
+          <%  }  %>
+        </span>
+        </span>
+        </center>
+    </div>
+    </div>
+  </header>        
+<!-- -------------------------------------------- -->

@@ -10,9 +10,9 @@ const bloodRequestDataModel = require ('../modules/DB_blood_request')
   }
 
   router.get('/', function(req, res){
-     bloodRequestDataModel.find({Status : "Pending"}).exec(function(err, result){
-        console.log(result[0].Status)
-        if (err) throw err;
+     bloodRequestDataModel.find({Status : "Accepted"}).exec(function(err, result){
+        console.log('result: ' + result)
+        // if (err) throw err;
         res.render('Accepter', {  title: 'Blood Stock', data: result, loginUser: localStorage.getItem('loginUser'),  loginUserGender: localStorage.getItem('loginUserGender')} )
       })
     })

@@ -33,13 +33,14 @@ function userAccess(req, res, next){
 
 
    router.post('/donationRequest', function(req, res, next) {
-       const Username = localStorage.getItem('loginUser')
+    const Donation_Req_Id = '';   
+    const Username = localStorage.getItem('loginUser')
        const Status = 'Pending'
        const Blood_Group =  req.body.Blood_Group
        const Blood_Cell = req.body.Blood_Cell
        const Weight =  req.body.Weight
        const Height =  req.body.Height
-
+       
        const donationRequest = new donationRequestDataModel({
         Username : Username,
         Status : Status,

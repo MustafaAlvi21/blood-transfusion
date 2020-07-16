@@ -15,11 +15,12 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Footer icon -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-    <!-- font  family -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-</head>
+          <!-- Footer icon -->
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+          <!-- font  family -->
+          <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    </head>
+
   <style>
         .a1{
           padding: 10px 100px;
@@ -63,54 +64,6 @@ color: #cf3d3c;
     
     <!-- ----------------------------   hehehe   -------------------------------------------- -->
     <body style="font-family: 'Roboto';  background-color: #ffffff">
-      <header style="background-color: #cf3d3c;">
-        <div class="row mx-auto a3">
-          <div class="col-lg-4 a3_1" style="border: steelblue;">
-          <center>
-            <br>
-           <img src="/images/logoTest.png" alt="logo" width="150px" height="100px" style="margin-top: 8px">
-          </center>
-          </div>
-          <div class="col-lg-4 a3_1" style="border:  blue;">
-            <div class="row mx-auto">   
-            <div class="col" id="userImage" style="margin: 0px auto; color: white;">
-              <center>
-               
-                
-                <% if (loginUser) {%>
-                      <% if (loginUserGender == 'male' || loginUserGender == 'Male' ) {%>
-                        <br>
-                        <img src="/images/maleUser.png" alt="male pic" style="max-width: 100px; max-height: 80px;">
-                        <% } else { %>
-                          <br>
-                          <img src="/images/femailUser.png" alt="femail pic" style="max-width: 100px; max-height: 80px;">
-                          <% } %> 
-                          <p> <%=loginUser%> </p>
-                <% } else { %>
-                  <br>
-                   <img src="/images/user-transparent.png" alt="img" style="max-width: 100px; max-height: 80px;">
-                <% } %>
-              </center>
-            </div>
-          </div>
-        </div>
-         
-        <div class="col-lg-4 a3_1" style="border: red; margin-top: 5%;">
-            
-          <center>
-            <span class="span1">
-            <% if (loginUser) {%>
-             <h4 > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; <a  style="color: white;" href="/logout"> Logout </a> &nbsp; &nbsp; &nbsp; </h4>
-           <% }  else { %>
-            <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a  style="color: white;" href="/signup"> Register </a> &nbsp; <a  style="color: white;" href="/login"> Login </a> </h4>
-            <%  }  %>
-          </span>
-          </span>
-          </center>
-      </div>
-      </div>
-    </header>       
-        <!-- -------------------------------------------- -->
     <center>
         <br>  <br>
       <h1 style="border-bottom: 1px solid grey; display: inline;">Blood Stock</h1>
@@ -133,7 +86,7 @@ color: #cf3d3c;
               %>
               <tr>
                 <td> <center> <%= data.Blood_Group %> </center> </td>
-                <td> <center> <%= data.Total %> </center> </td>
+                <td> <center> <%= data.Total_cells_available %> </center> </td>
               </tr>
               <%  })  %>
               <%  } else { %>
@@ -144,219 +97,13 @@ color: #cf3d3c;
       </div>
    
         <!-- ------------------------------------------------------------------ -->
-  
-      <div class="page-wrapper chiller-theme toggled" style="height: auto;">
-        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-          <i class="fas fa-bars"></i>
-        </a>
-        <nav id="sidebar" class="sidebar-wrapper" style="background-color: #ffffff;">
-          <div class="sidebar-content" style="background-color: #ffffff;">
-            <!-- sidebar-search  -->
-            <div class="sidebar-menu">
-              <ul>
-                <% if (loginUser != 'Admin' ) {%>
-                <li class="header-menu" style="color: #cf3d3c;">
-                  <div id="close-sidebar"  style="color: #cf3d3c;">
-                    <br>
-                    <div class="row mx-auto">
-                    <div class="col"  style="color: #cf3d3c;">General</div><div class="col"></div> <div class="col"><p  style="float: right;"><i class="fas fa-times"></i></p> </div>
-                  </div>
-                </div>
-                </li>
-                <li class="sidebar-dropdown " >
-                  <a href="/" style="color: #cf3d3c;">
-                    <i class="fa fa-tachometer-alt"></i>
-                    <span  style="color: #cf3d3c;">Home</span>
-                  </a>
-                </li>
+       
 
-                <li class="sidebar-dropdown" style="color: #cf3d3c;">
-                  <a href="/blood_stock" style="color: #cf3d3c;">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span style="color: #cf3d3c;">Blood Stock</span>
-                  </a>
-                </li>
-                <li class="sidebar-dropdown" style="color: #cf3d3c;">
-                  <a href="#" style="color: #cf3d3c;">
-                    <i class="far fa-gem" ></i>
-                    <span style="color: #cf3d3c;">Help Section</span>
-                  </a>
-                  <div class="sidebar-submenu" style="background-color: #cf3d3c;">
-                    <ul>
-                      <li>
-                        <a  style="color: #ffffff;" href="/donationRequest">Donation Request</a>
-                      </li>
-                      <li>
-                        <a  style="color: #ffffff;" href="/Need-Blood">Need Blood</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="sidebar-dropdown">
-                  <a href="/donor" style="color: #cf3d3c;">
-                    <i class="fa fa-chart-line"></i>
-                    <span  style="color: #cf3d3c;">View Donors</span>
-                  </a>
-                </li>
-                <li class="sidebar-dropdown">
-                  <a href="/accepters" style="color: #cf3d3c;">
-                    <i class="fa fa-globe"></i>
-                    <span style="color: #cf3d3c;">View Accepters</span>
-                  </a>
-                </li>
-                <%}  else {%>
-                  <li class="header-menu">
-                    <div id="close-sidebar">
-                      <br>
-                      <div class="row mx-auto">
-                      <div class="col" style="color: #cf3d3c;">Admin</div><div class="col"></div> <div class="col"><p  style="float: right;"><i style="color: #cf3d3c;"  class="fas fa-times"></i></p> </div>
-                    </div>
-                  </div>
-                <li class="sidebar-dropdown">
-                  <a href="/donor" style="color: #cf3d3c;">
-                    <i class="fa fa-chart-line"></i>
-                    <span  style="color: #cf3d3c;">View Donors</span>
-                  </a>
-                </li>
-                <li class="sidebar-dropdown">
-                  <a href="/accepters" style="color: #cf3d3c;">
-                    <i class="fa fa-globe"></i>
-                    <span style="color: #cf3d3c;">View Accepters</span>
-                  </a>
-                </li>
-                      <%}%>
-              </ul>
-            </div>
-            <!-- sidebar-menu  -->
-          </div>
-        </nav>
-        
-        <!-- page-content" -->
-      </div>
-      <!-- page-wrapper -->
-  
-   <!--::footer_part start::-->
-   <footer class="footer_part">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-    <br><br><br>
-    <br><br><br>
-      <div class="container">
-        <div class="row" >
-          <div class="col-sm-6 col-lg-3">
-            <div class="single_footer_part" >
-              <a href="/" class="footer_logo_iner">
-                <img src="/images/logoTest2.png" width="150px" height="100px" alt="hamrolifebank_logo_dark" />
-              </a>
-              <h4>About Us</h4>
-              <p style="color: #666;">
-                A social initiative for a smart, transparent and holistic blood management service from
-                collection to supply.
-              </p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="single_footer_part">
-              <h4>Contact Info</h4>
-              <p style="color: #666;">Address : A-123, Block-123,<br />Karachi, Pakistan.</p>
-              <p style="color: #666;">US Address : 12723 GORMAN <br />CIR BOYDS, MD 20841</p>
-              <p style="color: #666;">Phone : +92 1234567890</p>
-              <p style="color: #666;">Email : <a style="color: #444;" href="mustafaalvi21@gmail.com">team@bloodtransfusion.com</a></p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="single_footer_part">
-              <h4>Resources</h4>
-              <ul style="color: #666;" class="list-unstyled">
-                <li>Blood basics </li>
-                <li>Blood bank information </li>
-                <li>When you need blood </li>
-                <li>Reports </li>
-                <li>Videos </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <div class="single_footer_part">
-              <h4>Newsletter</h4>
-              <p style="color: #666;">
-                Subscribe to our Newsletter and get the latest updates about
-                <span class="hamro">Blood Transfusion</span>
-                Lifebank.
-              </p>
-            </div>
-            <br />
-            <div>
-                  <h4>Follow Us</h4>
-                  <ul class="social-network social-circle">
-                   <li style="width: 40px; height: 40px;"><a href="https://www.facebook.com/profile.php?id=100009246540814"  class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                   <li style="width: 40px; height: 40px;"><a href="https://mail.google.com/mail/u/0/#inbox" class="icogoogle" title="Google"><i class="fa fa-google"></i></a></li>
-                   <li style="width: 40px; height: 40px;"><a href="https://github.com/MustafaAlvi21" class="icogithub" title="Github"><i class="fa fa-github"></i></a></li>
-                  </ul>
-            </div>
-          </div>
-        </div>
-        <hr />
-    
-        <div class="row">
-          <div class="col">
-            <div class="copyright_text">
-             <center>
-                <P>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;
-                    <script>
-                      document.write(new Date().getFullYear());
-                    </script>
-                    <a id="rumsan" href="https://rumsan.com/" target="_blank">Musto Developers</a>
-                    | All rights reserved |
-                    <a href="/privacy-policy" target="_blank" id="rumsan">Privacy Policy</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  </P>
-             </center>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-    </footer>
-     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script>
-            jQuery(function ($) {
-    
-    $(".sidebar-dropdown > a").click(function() {
-    $(".sidebar-submenu").slideUp(200);
-    if (
-    $(this)
-      .parent()
-      .hasClass("active")
-    ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-    } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-    }
-    });
-    
-    $("#close-sidebar").click(function() {
-    $(".page-wrapper").removeClass("toggled");
-    });
-    $("#show-sidebar").click(function() {
-    $(".page-wrapper").addClass("toggled");
-    });
-    });
-  </script>
 </body>
 </html>
